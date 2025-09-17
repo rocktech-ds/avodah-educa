@@ -50,61 +50,40 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Education Theme - Avodah Colors
-        avodah: {
-          50:  '#f0fdf4',  // very light green
-          100: '#dcfce7',  // light green
-          200: '#bbf7d0',  // soft green
-          300: '#86efac',  // medium green
-          400: '#4ade80',  // bright green
-          500: '#22c55e',  // primary green
-          600: '#16a34a',  // dark green
-          700: '#15803d',  // darker green
-          800: '#166534',  // deep green
-          900: '#14532d',  // deepest green
-          950: '#052e16'   // forest green
+        // Platform Primary - Stitch Design System
+        platform: {
+          50:  '#e6f7ff',  // very light blue
+          100: '#bae7ff',  // light blue
+          200: '#7dd3fc',  // soft blue
+          300: '#38bdf8',  // medium blue
+          400: '#0ea5e9',  // bright blue
+          500: '#13a4ec',  // primary platform blue (from Stitch)
+          600: '#0284c7',  // dark blue
+          700: '#0369a1',  // darker blue
+          800: '#075985',  // deep blue
+          900: '#0c4a6e',  // deepest blue
         },
-        wisdom: {
-          50:  '#fefce8',  // very light yellow
-          100: '#fef3c7',  // light yellow
-          200: '#fde68a',  // soft yellow
-          300: '#fcd34d',  // medium yellow
-          400: '#fbbf24',  // bright yellow
-          500: '#f59e0b',  // primary amber
-          600: '#d97706',  // dark amber
-          700: '#b45309',  // darker amber
-          800: '#92400e',  // deep amber
-          900: '#78350f',  // deepest amber
+        // Supporting colors for educational context
+        success: {
+          50:  '#ecfdf5',
+          500: '#10b981',
+          600: '#059669',
         },
-        // Education-specific colors
-        study: {
-          50:  '#eff6ff',  // very light blue
-          100: '#dbeafe',  // light blue
-          200: '#bfdbfe',  // soft blue
-          300: '#93c5fd',  // medium blue
-          400: '#60a5fa',  // bright blue
-          500: '#3b82f6',  // primary blue
-          600: '#2563eb',  // dark blue
-          700: '#1d4ed8',  // darker blue
-          800: '#1e40af',  // deep blue
-          900: '#1e3a8a',  // deepest blue
+        warning: {
+          50:  '#fffbeb',
+          500: '#f59e0b',
+          600: '#d97706',
         },
-        focus: {
-          50:  '#fdf4ff',  // very light purple
-          100: '#fae8ff',  // light purple
-          200: '#f5d0fe',  // soft purple
-          300: '#f0abfc',  // medium purple
-          400: '#e879f9',  // bright purple
-          500: '#d946ef',  // primary purple
-          600: '#c026d3',  // dark purple
-          700: '#a21caf',  // darker purple
-          800: '#86198f',  // deep purple
-          900: '#701a75',  // deepest purple
+        error: {
+          50:  '#fef2f2',
+          500: '#ef4444',
+          600: '#dc2626',
         },
-        success: '#10b981',
-        warning: '#f59e0b',
-        error: '#ef4444',
-        info: '#3b82f6'
+        info: {
+          50:  '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -146,9 +125,9 @@ module.exports = {
         "bounce-gentle": "bounce-gentle 2s infinite",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Manrope", "Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "Consolas", "monospace"],
-        heading: ["Poppins", "system-ui", "sans-serif"],
+        heading: ["Manrope", "system-ui", "sans-serif"],
       },
       boxShadow: {
         'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
