@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,19 +11,19 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 142 76% 36%; /* avodah-500 */
-    --primary-foreground: 355 100% 97%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --primary: 203 89% 53%; /* platform-500 #13a4ec */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220 8.9% 46.1%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220 8.9% 15%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 142 76% 36%; /* avodah-500 */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 203 89% 53%; /* platform-500 */
     --radius: 0.5rem;
     
     /* Education-specific custom properties */
@@ -68,19 +68,19 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 64% 24%; /* avodah-700 in dark mode */
-    --primary-foreground: 142 85% 96%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --primary: 203 89% 53%; /* platform-500 in dark mode */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14.3% 11%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 40% 92%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 142 72% 29%; /* avodah-600 */
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 203 89% 53%; /* platform-500 */
   }
 }
 
@@ -112,25 +112,25 @@
 }
 
 @layer components {
-  /* Education-specific component styles */
+  /* Platform-specific component styles */
   .card-education {
-    @apply bg-white dark:bg-gray-900 border-2 border-avodah-200 dark:border-avodah-800 rounded-xl shadow-education;
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm;
   }
   
   .btn-education {
-    @apply bg-avodah-500 hover:bg-avodah-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply bg-platform-500 hover:bg-platform-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
   }
   
   .btn-education-outline {
-    @apply border-2 border-avodah-500 text-avodah-700 dark:text-avodah-300 hover:bg-avodah-50 dark:hover:bg-avodah-900/20 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply border-2 border-platform-500 text-platform-700 dark:text-platform-300 hover:bg-platform-50 dark:hover:bg-platform-900/20 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
   }
   
   .text-gradient-education {
-    @apply bg-gradient-to-r from-avodah-600 to-study-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-platform-600 to-platform-400 bg-clip-text text-transparent;
   }
   
   .hero-pattern {
-    background-image: radial-gradient(circle at 25px 25px, rgba(34, 197, 94, 0.1) 2px, transparent 0),
+    background-image: radial-gradient(circle at 25px 25px, rgba(19, 164, 236, 0.1) 2px, transparent 0),
                       radial-gradient(circle at 75px 75px, rgba(59, 130, 246, 0.1) 2px, transparent 0);
     background-size: 100px 100px;
   }
@@ -163,7 +163,7 @@
 
 /* Focus styles for accessibility */
 .focus-visible {
-  @apply outline-none ring-2 ring-avodah-500 ring-offset-2 ring-offset-background;
+  @apply outline-none ring-2 ring-platform-500 ring-offset-2 ring-offset-background;
 }
 
 /* Loading states */
