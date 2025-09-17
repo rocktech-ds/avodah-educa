@@ -20,19 +20,19 @@ const buttonVariants = cva(
       },
       variant: {
         default:
-          "bg-avodah-500 text-white hover:bg-avodah-600 shadow-md hover:shadow-lg",
+          "bg-platform-500 text-white hover:bg-platform-600 shadow-md hover:shadow-lg",
         destructive:
           "bg-red-500 text-white hover:bg-red-600 shadow-md hover:shadow-lg",
-        ghost: "hover:bg-avodah-50 hover:text-avodah-700 dark:hover:bg-avodah-900/20 dark:hover:text-avodah-300",
-        link: "text-avodah-600 underline-offset-4 hover:underline dark:text-avodah-400",
+        ghost: "hover:bg-platform-50 hover:text-platform-700 dark:hover:bg-platform-900/20 dark:hover:text-platform-300",
+        link: "text-platform-600 underline-offset-4 hover:underline dark:text-platform-400",
         outline:
-          "border border-avodah-300 bg-white hover:bg-avodah-50 hover:text-avodah-700 dark:border-avodah-600 dark:bg-transparent dark:hover:bg-avodah-900/20 dark:hover:text-avodah-300",
+          "border border-platform-300 bg-white hover:bg-platform-50 hover:text-platform-700 dark:border-platform-600 dark:bg-transparent dark:hover:bg-platform-900/20 dark:hover:text-platform-300",
         secondary:
-          "bg-study-500 text-white hover:bg-study-600 shadow-md hover:shadow-lg",
+          "bg-gray-100 text-gray-900 hover:bg-gray-200 shadow-sm hover:shadow-md",
         success:
           "bg-emerald-500 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg",
         warning:
-          "bg-wisdom-500 text-white hover:bg-wisdom-600 shadow-md hover:shadow-lg",
+          "bg-amber-500 text-white hover:bg-amber-600 shadow-md hover:shadow-lg",
       },
     },
   }
