@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avodah-educa.com/sitemap.xml

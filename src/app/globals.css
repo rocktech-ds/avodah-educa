@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142 76% 36%; /* avodah-500 */
+    --primary-foreground: 355 100% 97%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 76% 36%; /* avodah-500 */
+    --radius: 0.5rem;
+    
+    /* Education-specific custom properties */
+    --avodah-50: 151 88% 94%;
+    --avodah-100: 149 80% 90%;
+    --avodah-200: 152 76% 80%;
+    --avodah-300: 152 69% 61%;
+    --avodah-400: 152 69% 61%;
+    --avodah-500: 142 76% 36%;
+    --avodah-600: 142 72% 29%;
+    --avodah-700: 142 64% 24%;
+    --avodah-800: 142 55% 20%;
+    --avodah-900: 142 61% 13%;
+    
+    --wisdom-50: 55 92% 95%;
+    --wisdom-100: 55 96% 88%;
+    --wisdom-200: 53 98% 77%;
+    --wisdom-300: 50 97% 64%;
+    --wisdom-400: 48 96% 53%;
+    --wisdom-500: 43 96% 48%;
+    --wisdom-600: 37 91% 55%;
+    --wisdom-700: 32 81% 41%;
+    --wisdom-800: 28 73% 26%;
+    --wisdom-900: 25 69% 22%;
+    
+    --study-50: 214 100% 97%;
+    --study-100: 214 95% 93%;
+    --study-200: 213 97% 87%;
+    --study-300: 212 96% 78%;
+    --study-400: 213 94% 68%;
+    --study-500: 217 91% 60%;
+    --study-600: 221 83% 53%;
+    --study-700: 224 76% 48%;
+    --study-800: 226 71% 40%;
+    --study-900: 224 64% 33%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 64% 24%; /* avodah-700 in dark mode */
+    --primary-foreground: 142 85% 96%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142 72% 29%; /* avodah-600 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/70;
+  }
+}
+
+@layer components {
+  /* Education-specific component styles */
+  .card-education {
+    @apply bg-white dark:bg-gray-900 border-2 border-avodah-200 dark:border-avodah-800 rounded-xl shadow-education;
+  }
+  
+  .btn-education {
+    @apply bg-avodah-500 hover:bg-avodah-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-education-outline {
+    @apply border-2 border-avodah-500 text-avodah-700 dark:text-avodah-300 hover:bg-avodah-50 dark:hover:bg-avodah-900/20 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .text-gradient-education {
+    @apply bg-gradient-to-r from-avodah-600 to-study-600 bg-clip-text text-transparent;
+  }
+  
+  .hero-pattern {
+    background-image: radial-gradient(circle at 25px 25px, rgba(34, 197, 94, 0.1) 2px, transparent 0),
+                      radial-gradient(circle at 75px 75px, rgba(59, 130, 246, 0.1) 2px, transparent 0);
+    background-size: 100px 100px;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  @apply outline-none ring-2 ring-avodah-500 ring-offset-2 ring-offset-background;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
