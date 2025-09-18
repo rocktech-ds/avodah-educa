@@ -80,6 +80,12 @@ pids
 # dotenv environment variables file
 .env
 
+# OAuth credentials and secrets
+.env.oauth
+scripts/.env.oauth
+*.oauth
+*oauth.env
+
 # next.js build output
 .next
 
