@@ -1,3 +1,194 @@
+-- =============================================================================
+-- AVODAH EDUCA - MULTI-TENANT SAAS SEED DATA
+-- =============================================================================
+-- This file contains sample data for development and testing
+
+-- =============================================================================
+-- SAMPLE ORGANIZATIONS FOR TESTING
+-- =============================================================================
+
+-- Note: In production, organizations are created through the signup flow
+-- These are for development testing only
+
+/*
+Example organizations (create these after setting up the authentication system):
+
+SELECT public.signup_organization(
+    'Universidade Demo',
+    'universidade-demo', 
+    'João Silva',
+    'admin@universidade-demo.com',
+    'password123',
+    'professional'
+);
+
+SELECT public.signup_organization(
+    'Escola Técnica ABC',
+    'escola-abc',
+    'Maria Santos', 
+    'admin@escola-abc.com',
+    'password123',
+    'starter'
+);
+
+SELECT public.signup_organization(
+    'Instituto de Tecnologia',
+    'instituto-tech',
+    'Carlos Oliveira',
+    'admin@instituto-tech.com', 
+    'password123',
+    'enterprise'
+);
+*/
+
+-- =============================================================================
+-- MULTI-TENANT SAMPLE DATA STRUCTURE
+-- =============================================================================
+
+-- Categories will be created automatically when organizations are set up
+-- Each organization gets its own set of default categories
+
+-- Sample courses (organization-specific)
+/*
+After creating organizations and users, you can create sample courses:
+
+-- First, get the organization ID and instructor ID
+-- Then create courses for that organization:
+
+INSERT INTO public.courses (
+    title, 
+    slug, 
+    description, 
+    short_description,
+    organization_id,
+    instructor_id, 
+    category_id, 
+    status, 
+    level, 
+    duration_minutes, 
+    price, 
+    is_free,
+    tags,
+    language
+) VALUES
+(
+    'Introdução ao React.js',
+    'introducao-react-js',
+    'Aprenda os fundamentos do React.js, uma das bibliotecas JavaScript mais populares para desenvolvimento de interfaces de usuário.',
+    'Fundamentos do React.js para iniciantes',
+    '[ORG_UUID]', -- Replace with organization UUID
+    '[INSTRUCTOR_UUID]', -- Replace with instructor UUID
+    (SELECT id FROM public.categories WHERE slug = 'tecnologia' AND organization_id = '[ORG_UUID]'),
+    'published',
+    'beginner',
+    480, -- 8 hours
+    99.90,
+    false,
+    ARRAY['React', 'JavaScript', 'Frontend', 'Web Development'],
+    'pt'
+);
+*/
+
+-- =============================================================================
+-- DEVELOPMENT HELPER FUNCTIONS
+-- =============================================================================
+
+-- Function to create a demo organization with sample data
+CREATE OR REPLACE FUNCTION public.create_demo_organization(
+    p_org_name TEXT,
+    p_org_slug TEXT,
+    p_owner_email TEXT
+)
+RETURNS UUID AS $$
+DECLARE
+    demo_org_id UUID;
+    tech_category_id UUID;
+    sample_course_id UUID;
+BEGIN
+    -- Create organization (this will create default categories)
+    SELECT public.signup_organization(
+        p_org_name,
+        p_org_slug,
+        'Demo Owner',
+        p_owner_email,
+        'demopassword123',
+        'professional'
+    )->>'organization_id' INTO demo_org_id;
+    
+    -- Get technology category ID
+    SELECT id INTO tech_category_id
+    FROM public.categories 
+    WHERE organization_id = demo_org_id::uuid 
+    AND slug = 'tecnologia';
+    
+    -- Note: To complete this demo setup, you would need to:
+    -- 1. Create a user account for the owner email
+    -- 2. Call complete_organization_setup()
+    -- 3. Add sample courses, lessons, etc.
+    
+    RETURN demo_org_id::uuid;
+END;
+$$ LANGUAGE plpgsql;
+
+-- =============================================================================
+-- HELPER QUERIES FOR DEVELOPMENT
+-- =============================================================================
+
+-- Query to check if database is set up correctly
+-- SELECT 'Multi-tenant database setup complete!' as message;
+
+-- Query to show all tables
+-- SELECT schemaname, tablename FROM pg_tables WHERE schemaname = 'public' ORDER BY tablename;
+
+-- Query to show all functions
+-- SELECT routine_name, routine_type FROM information_schema.routines WHERE routine_schema = 'public' ORDER BY routine_name;
+
+-- Query to show RLS policies
+-- SELECT schemaname, tablename, policyname FROM pg_policies WHERE schemaname = 'public' ORDER BY tablename, policyname;
+
+-- Query to show storage buckets
+-- SELECT * FROM storage.buckets;
+
+-- Query to show organizations
+-- SELECT id, name, slug, status, plan, trial_ends_at FROM public.organizations;
+
+-- =============================================================================
+-- MULTI-TENANT SAMPLE DATA NOTES
+-- =============================================================================
+
+-- To add sample data in a multi-tenant setup:
+-- 1. Create organizations using signup_organization()
+-- 2. Create user accounts through Supabase Auth
+-- 3. Complete organization setup using complete_organization_setup()
+-- 4. Invite users to organizations using invite_user_to_organization()
+-- 5. Create organization-specific courses, lessons, etc.
+-- 6. Enroll students in courses within their organizations
+
+-- Example organization signup flow:
+-- 1. Call signup_organization() -> returns org data
+-- 2. Create user account in Supabase Auth
+-- 3. User logs in and calls complete_organization_setup()
+-- 4. Organization is ready with default categories and settings
+
+-- Example user invitation flow:
+-- 1. Org admin calls invite_user_to_organization()
+-- 2. Invited user receives email with token
+-- 3. User signs up (or logs in) and calls accept_organization_invitation()
+-- 4. User becomes member of organization with assigned role
+
+-- Example organization switching:
+-- 1. User calls switch_organization() with desired org ID
+-- 2. All subsequent operations are scoped to that organization
+-- 3. Data isolation is maintained through RLS policies
+
+-- Example limit checking:
+-- SELECT public.check_organization_limits('all'); -- Check all limits
+-- SELECT public.check_organization_limits('users'); -- Check user limit only
+
+-- Example usage statistics:
+-- SELECT public.get_organization_usage_stats(); -- Current org stats
+-- SELECT public.get_organization_usage_stats('[ORG_UUID]'); -- Specific org stats
+
 -- Sample data for Avodah Educa platform
 -- This file contains initial data for testing and development
 
